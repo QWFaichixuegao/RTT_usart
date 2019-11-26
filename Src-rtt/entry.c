@@ -138,9 +138,9 @@ int main(void)
   MX_USB_DEVICE_Init();
   MX_USART3_UART_Init();
   /* USER CODE BEGIN 2 */
-  RTT_CREATE(led1,led1_thread_entry,RT_NULL,256,5,20);
-  RTT_CREATE(led2,led2_thread_entry,RT_NULL,256,5,20);
-  RTT_CREATE(led3,led3_thread_entry,RT_NULL,256,5,20);
+  RTT_CREATE(led1,led1_thread_entry,RT_NULL,256,10,20);
+  RTT_CREATE(led2,led2_thread_entry,RT_NULL,256,10,20);
+  RTT_CREATE(led3,led3_thread_entry,RT_NULL,256,10,20);
   uart_sample(0, NULL);
   /* USER CODE END 2 */
 

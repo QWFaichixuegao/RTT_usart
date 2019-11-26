@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\build\stm32f4discovery-rtt.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\build\stm32f4discovery-rtt.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060528: Last Updated: Mon Nov 25 19:33:56 2019
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060528: Last Updated: Tue Nov 26 21:32:00 2019
 <BR><P>
 <H3>Maximum Stack Usage =        464 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -3988,7 +3988,7 @@ Global Symbols
 <LI><a href="#[198]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;$Super$$main
 </UL>
 
-<P><STRONG><a name="[198]"></a>$Super$$main</STRONG> (Thumb, 164 bytes, Stack size 32 bytes, entry.o(.text))
+<P><STRONG><a name="[198]"></a>$Super$$main</STRONG> (Thumb, 166 bytes, Stack size 32 bytes, entry.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 456<LI>Call Chain = $Super$$main &rArr; uart_sample &rArr; rt_thread_create &rArr; rt_object_allocate &rArr; rt_malloc &rArr; rt_sem_take &rArr; rt_ipc_list_suspend &rArr; rt_thread_suspend &rArr; rt_timer_stop &rArr; rt_object_get_type &rArr; rt_assert_handler &rArr; rt_kprintf &rArr; rt_vsnprintf &rArr; print_number
 </UL>
 <BR>[Calls]<UL><LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Init
@@ -4388,7 +4388,7 @@ Global Symbols
 <P><STRONG><a name="[21]"></a>USER_ioctl</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, user_diskio.o(.text))
 <BR>[Address Reference Count : 1]<UL><LI> user_diskio.o(.data)
 </UL>
-<P><STRONG><a name="[25f]"></a>uart_sample</STRONG> (Thumb, 154 bytes, Stack size 56 bytes, example_uart.o(.text))
+<P><STRONG><a name="[25f]"></a>uart_sample</STRONG> (Thumb, 156 bytes, Stack size 56 bytes, example_uart.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 424<LI>Call Chain = uart_sample &rArr; rt_thread_create &rArr; rt_object_allocate &rArr; rt_malloc &rArr; rt_sem_take &rArr; rt_ipc_list_suspend &rArr; rt_thread_suspend &rArr; rt_timer_stop &rArr; rt_object_get_type &rArr; rt_assert_handler &rArr; rt_kprintf &rArr; rt_vsnprintf &rArr; print_number
 </UL>
 <BR>[Calls]<UL><LI><a href="#[1c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_device_set_rx_indicate

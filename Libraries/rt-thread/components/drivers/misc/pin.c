@@ -40,9 +40,7 @@ static rt_size_t _pin_write(rt_device_t dev, rt_off_t pos, const void *buffer, r
 
     status = (struct rt_device_pin_status *) buffer;
     if (status == RT_NULL || size != sizeof(*status)) return 0;
-
     pin->ops->pin_write(dev, (rt_base_t)status->pin, (rt_base_t)status->status);
-
     return size;
 }
 

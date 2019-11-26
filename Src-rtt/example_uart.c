@@ -2,25 +2,26 @@
 
 #define SAMPLE_UART_NAME       "uart3"
 
-static struct rt_semaphore rx_sem;
+struct rt_semaphore r_sem;//声明了一个结构体变量，带地址
+// rt_sem_t r_sem;只是定义了一个rt_semaphore这个类型的指针，不能算声明还是指rt_sem_t
+
+
 static rt_device_t serial;
 extern int aa;
 static rt_err_t uart_input(rt_device_t dev, rt_size_t size)
 {
-    rt_sem_release(&rx_sem);//发送串口接收到数据后的信号量
-
+    rt_sem_release(&r_sem);//发送串口接收到数据后的信号量
     return RT_EOK;
 }
 
 static void serial_thread_entry(void *parameter)
 {
     char ch;
-
     while (1)
     {
         while (rt_device_read(serial, -1, &ch, 1) != 1)
         {
-            rt_sem_take(&rx_sem, RT_WAITING_FOREVER);
+            rt_sem_take(&r_sem, RT_WAITING_FOREVER);
         }
         ch = ch + 1;
         rt_device_write(serial, 0, &ch, 1);
@@ -50,7 +51,7 @@ int uart_sample(int argc, char *argv[])
         return RT_ERROR;
     }
 
-    rt_sem_init(&rx_sem, "rx_sem", 0, RT_IPC_FLAG_FIFO);
+    rt_sem_init(&r_sem, "rx_sem", 0, RT_IPC_FLAG_FIFO);
 
     rt_device_open(serial, RT_DEVICE_FLAG_INT_RX);
 
@@ -58,7 +59,7 @@ int uart_sample(int argc, char *argv[])
 
     rt_device_write(serial, 0, str, (sizeof(str) - 1));
 
-    rt_thread_t thread = rt_thread_create("serial", serial_thread_entry, RT_NULL, 1024, 10, 10);
+    rt_thread_t thread = rt_thread_create("serial", serial_thread_entry, RT_NULL, 1024, 5, 10);
     aa=3;
     if (thread != RT_NULL)
     {
