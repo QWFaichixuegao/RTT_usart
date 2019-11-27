@@ -173,7 +173,7 @@
 #define BSP_USING_GPIO
 #define BSP_USING_UART
 #define BSP_USING_UART3
-#define BSP_UART2_RX_USING_DMA
+#define BSP_UART3_RX_USING_DMA
 
 /* Board extended module Drivers */
 

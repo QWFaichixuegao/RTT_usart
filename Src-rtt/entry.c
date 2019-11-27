@@ -58,7 +58,7 @@ static void MX_DMA_Init(void);
 static void MX_USART3_UART_Init(void);
 /* USER CODE BEGIN PFP */
 
-int uart_sample(int argc, char *argv[]);
+int uart_dma_sample(int argc, char *argv[]);
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -70,7 +70,8 @@ rt_thread_t led3_thread;
 #define F9  89
 #define F10 90
 int aa=2;
-
+int bb=3;
+char aj[20];
 void led1_thread_entry(void* parameter)
 {
   while(1) {
@@ -141,7 +142,7 @@ int main(void)
   RTT_CREATE(led1,led1_thread_entry,RT_NULL,256,10,20);
   RTT_CREATE(led2,led2_thread_entry,RT_NULL,256,10,20);
   RTT_CREATE(led3,led3_thread_entry,RT_NULL,256,10,20);
-  uart_sample(0, NULL);
+  uart_dma_sample(0, NULL);
   /* USER CODE END 2 */
 
   /* Infinite loop */
