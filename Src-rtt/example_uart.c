@@ -28,8 +28,7 @@ static rt_err_t uart_input(rt_device_t dev, rt_size_t size)
 }
 
 int change(int x){
-  x=66;
-  
+  x+=66;
   return x+6;
 }
 static void serial_thread_entry(void *parameter)
@@ -49,6 +48,7 @@ static void serial_thread_entry(void *parameter)
             rt_kprintf("%s\n",rx_buffer);
         }
     }
+		rt_mq_detach(&rx_mq);
 }
 
 
